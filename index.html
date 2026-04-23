@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>전봇대 안내 설명서</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Noto Sans KR', Arial, sans-serif;
+      background: linear-gradient(135deg, #F0F8FF 0%, #E8F5E8 100%);
+      color: #1A365D;
+      line-height: 1.7;
+      padding-bottom: 100px;
+    }
+
+    header {
+      background: linear-gradient(135deg, #4F9DEB 0%, #00BFA5 50%, #00C9A7 100%);
+      color: white;
+      padding: 50px 20px 32px;
+      text-align: center;
+      box-shadow: 0 12px 32px rgba(79, 157, 235, 0.25);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    header p {
+      margin: 12px 0 24px;
+      opacity: 0.95;
+      font-size: 1.1rem;
+      font-weight: 300;
+    }
+
+    .top-nav {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .top-nav a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.95);
+      color: #1A365D;
+      text-decoration: none;
+      font-weight: 600;
+      border: 1px solid rgba(255,255,255,0.35);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+      transition: all 0.25s ease;
+      backdrop-filter: blur(8px);
+    }
+
+    .top-nav a:hover {
+      transform: translateY(-2px);
+      border-color: #4F9DEB;
+      box-shadow: 0 14px 28px rgba(79, 157, 235, 0.18);
+      background: #ffffff;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 32px 24px;
+    }
+
+    .main-section {
+      margin-bottom: 52px;
+      scroll-margin-top: 24px;
+    }
+
+    .main-section-title {
+      margin: 0 0 24px;
+      font-size: 1.9rem;
+      color: #1A365D;
+      font-weight: 700;
+      text-align: center;
+      position: relative;
+    }
+
+    .main-section-title::after {
+      content: '';
+      display: block;
+      width: 72px;
+      height: 5px;
+      background: linear-gradient(90deg, #4F9DEB, #00BFA5);
+      margin: 14px auto 0;
+      border-radius: 999px;
+    }
+
+    .video-intro {
+      background: #FFFFFF;
+      padding: 32px;
+      border-radius: 24px;
+      box-shadow: 0 16px 48px rgba(79, 157, 235, 0.12);
+      border: 1px solid #E3F2FD;
+      text-align: center;
+    }
+
+    .video-box {
+      width: 100%;
+      max-width: 960px;
+      height: 450px;
+      margin: 0 auto;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 2px solid #E3F2FD;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+      background: #f8fbff;
+    }
+
+    .video-box video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center top;
+      display: block;
+    }
+
+    .video-desc {
+      margin: 16px auto 0;
+      color: #4A5568;
+      font-size: 1rem;
+      max-width: 760px;
+    }
+
+    .viewer {
+      background: #FFFFFF;
+      padding: 32px;
+      border-radius: 24px;
+      box-shadow: 0 16px 48px rgba(79, 157, 235, 0.12);
+      text-align: center;
+      border: 1px solid #E3F2FD;
+      transition: all 0.3s ease;
+    }
+
+    .viewer:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 24px 64px rgba(79, 157, 235, 0.18);
+    }
+
+    .viewer img {
+      width: 100%;
+      max-height: 650px;
+      object-fit: contain;
+      object-position: center;
+      border-radius: 20px;
+      border: 2px solid #E3F2FD;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+      transition: all 0.4s ease;
+      background: #f8fbff;
+      padding: 12px;
+    }
+
+    .viewer img:hover {
+      transform: scale(1.01);
+      box-shadow: 0 20px 48px rgba(79, 157, 235, 0.2);
+    }
+
+    .viewer h2 {
+      margin: 24px 0 12px;
+      color: #4F9DEB;
+      font-size: 1.8rem;
+      font-weight: 600;
+    }
+
+    .viewer p {
+      margin: 0;
+      color: #4A5568;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .section-title {
+      margin: 48px 0 24px;
+      font-size: 1.6rem;
+      color: #1A365D;
+      font-weight: 600;
+      text-align: center;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(90deg, #4F9DEB, #00BFA5);
+      margin: 12px auto 0;
+      border-radius: 2px;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
+      margin-bottom: 48px;
+    }
+
+    .card-btn {
+      text-align: left;
+      border: 2px solid #E3F2FD;
+      border-radius: 20px;
+      background: #FFFFFF;
+      padding: 24px;
+      cursor: pointer;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      min-height: 140px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #4F9DEB, #00BFA5);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .card-btn:hover {
+      transform: translateY(-8px) scale(1.02);
+      border-color: #4F9DEB;
+      box-shadow: 0 24px 56px rgba(79, 157, 235, 0.22);
+    }
+
+    .card-btn:hover::before {
+      transform: scaleX(1);
+    }
+
+    .card-btn:focus {
+      outline: none;
+      box-shadow: 0 0 0 4px rgba(79, 157, 235, 0.3);
+    }
+
+    .card-btn.active {
+      background: linear-gradient(135deg, #4F9DEB15, #00BFA515);
+      border-color: #4F9DEB;
+      box-shadow: 0 16px 48px rgba(79, 157, 235, 0.2);
+      transform: translateY(-4px);
+    }
+
+    .card-btn.active::before {
+      transform: scaleX(1);
+      background: linear-gradient(90deg, #FFFFFF, #4F9DEB);
+    }
+
+    .card-btn h3 {
+      margin: 0 0 12px;
+      color: #1A365D;
+      font-size: 1.2rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+    }
+
+    .card-btn h3::before {
+      content: '⚡';
+      margin-right: 8px;
+      font-size: 1.1rem;
+    }
+
+    .card-btn p {
+      margin: 0;
+      color: #4A5568;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .group-divider {
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #4F9DEB, #00BFA5, transparent);
+      margin: 56px 0;
+      border: none;
+      border-radius: 2px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      color: #718096;
+      font-size: 0.95rem;
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid #E3F2FD;
+    }
+
+    .music-toggle {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      z-index: 9999;
+      background: linear-gradient(135deg, #4F9DEB, #00BFA5);
+      color: white;
+      border: none;
+      border-radius: 999px;
+      padding: 14px 20px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 12px 24px rgba(0,0,0,0.18);
+      transition: all 0.3s ease;
+    }
+
+    .music-toggle:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 28px rgba(0,0,0,0.22);
+    }
+
+    .music-toggle.off {
+      background: #718096;
+    }
+
+    @media (max-width: 1024px) {
+      .card-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 24px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 24px 16px;
+      }
+
+      header h1 {
+        font-size: 2rem;
+      }
+
+      .viewer,
+      .video-intro {
+        padding: 24px;
+      }
+
+      .card-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+      }
+
+      .viewer img {
+        max-height: 480px;
+      }
+
+      .video-box {
+        height: 320px;
+      }
+
+      .music-toggle {
+        right: 16px;
+        bottom: 16px;
+        padding: 12px 16px;
+        font-size: 0.9rem;
+      }
+
+      .top-nav a {
+        width: 100%;
+        max-width: 420px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+
+      header {
+        padding: 40px 16px 28px;
+      }
+
+      .viewer img {
+        max-height: 360px;
+      }
+
+      .video-box {
+        height: 240px;
+      }
+
+      .top-nav a {
+        font-size: 0.95rem;
+        padding: 11px 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>⚡ 전봇대 안내 설명서</h1>
+    <p>아래 메뉴를 클릭하면 원하는 큰 섹션으로 바로 이동할 수 있습니다.</p>
+
+    <nav class="top-nav" aria-label="주요 섹션 바로가기">
+      <a href="#intro-section">🎬 홈페이지 소개</a>
+      <a href="#structure-section">🗼 배전 전봇대 구조 및 명칭</a>
+      <a href="#power-section">📡 전봇대 상세 구조 및 용도 설명</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="main-section" id="intro-section">
+      <h2 class="main-section-title">🎬 홈페이지 소개</h2>
+      <section class="video-intro">
+        <div class="video-box">
+          <video controls poster="썸네일.png">
+            <source src="AI 아바타 홈페이지 안내.mp4" type="video/mp4">
+            브라우저가 video 태그를 지원하지 않습니다.
+          </video>
+        </div>
+        <p class="video-desc">
+          AI 아바타를 활용해 홈페이지의 구성과 활용 방법을 간단히 소개한 영상입니다.
+        </p>
+      </section>
+    </section>
+
+    <section class="main-section" id="structure-section">
+      <h2 class="main-section-title">🗼 배전 전봇대 구조 및 명칭</h2>
+      <section class="viewer" id="mainViewer">
+        <img id="mainImage" src="전봇대 사진.png" alt="전봇대 전체 사진">
+        <h2 id="mainTitle">전봇대 전체 구조</h2>
+        <p id="mainDesc">전봇대의 전체 구조를 한눈에 볼 수 있습니다. 모든 구성 요소가 조화롭게 배치되어 있습니다.</p>
+      </section>
+    </section>
+
+    <section class="main-section" id="power-section">
+      <h2 class="main-section-title">📡 전봇대 상세 구조 및 용도 설명</h2>
+
+      <h3 class="section-title">전력 전송 및 절연</h3>
+      <div class="card-grid">
+        <button class="card-btn active"
+                data-img="전봇대 사진.png"
+                data-title="전봇대 전체 구조"
+                data-desc="전봇대의 전체 구조를 한눈에 볼 수 있습니다. 모든 구성 요소가 조화롭게 배치되어 있습니다.">
+          <h3>전체 보기</h3>
+          <p>메인 이미지를 다시 보여줍니다.</p>
+        </button>
+
+        <button class="card-btn"
+                data-img="전선.png"
+                data-title="전선"
+                data-desc="전기를 전달하는 선으로, 전봇대 위를 따라 연결됩니다. 고압 전력을 안정적으로 전달합니다.">
+          <h3>전선</h3>
+          <p>고압 전력 전달선입니다.</p>
+        </button>
+
+        <button class="card-btn"
+                data-img="애자.png"
+                data-title="애자"
+                data-desc="전선이 기둥과 직접 닿지 않도록 분리해주는 부품입니다. 절연 및 지지 역할을 합니다.">
+          <h3>애자</h3>
+          <p>절연 및 전선 지지.</p>
+        </button>
+      </div>
+
+      <hr class="group-divider">
+
+      <h3 class="section-title">지지 및 결속</h3>
+      <div class="card-grid">
+        <button class="card-btn"
+                data-img="완금.png"
+                data-title="완금"
+                data-desc="전선과 장비를 일정한 위치에 고정하는 지지 부품입니다. 구조적 안정성을 유지합니다.">
+          <h3>완금</h3>
+          <p>전선 지지 금구입니다.</p>
+        </button>
+
+        <button class="card-btn"
+                data-img="암타이.png"
+                data-title="암타이"
+                data-desc="완금이나 장주를 단단하게 잡아주는 보조 결속 부품입니다. 추가적인 고정력을 제공합니다.">
+          <h3>암타이</h3>
+          <p>보조 결속 부품입니다.</p>
+        </button>
+
+        <button class="card-btn"
+                data-img="2차 전선.png"
+                data-title="2차 전선"
+                data-desc="저압 전력을 공급하는 보조 전선입니다. 가정 및 소규모 시설에 전력을 공급합니다.">
+          <h3>2차 전선</h3>
+          <p>저압 공급선입니다.</p>
+        </button>
+      </div>
+
+      <hr class="group-divider">
+
+      <h3 class="section-title">변전 및 보호 장치</h3>
+      <div class="card-grid">
+        <button class="card-btn"
+                data-img="주상변압기.png"
+                data-title="주상변압기"
+                data-desc="고압 전기를 저압 전기로 바꿔주는 전봇대 위의 변압기입니다. 지역 전력 공급의 핵심입니다.">
+          <h3>주상변압기</h3>
+          <p>고압 → 저압 변환.</p>
+        </button>
+
+        <button class="card-btn"
+                data-img="컷아웃스위치.png"
+                data-title="컷아웃 스위치"
+                data-desc="고장이나 과전류가 생겼을 때 회로를 차단해주는 장치입니다. 안전 보호를 위한 필수 장비입니다.">
+          <h3>컷아웃 스위치</h3>
+          <p>과전류 보호 차단기.</p>
+        </button>
+
+        <button class="card-btn"
+                data-img="피뢰기.png"
+                data-title="피뢰기"
+                data-desc="낙뢰나 과전압이 들어왔을 때 설비를 보호하는 장치입니다. 번개로부터 전기 시스템을 보호합니다.">
+          <h3>피뢰기</h3>
+          <p>낙뢰 및 서지 보호.</p>
+        </button>
+
+        <button class="card-btn"
+                data-img="가로등.png"
+                data-title="가로등"
+                data-desc="야간 조명을 위한 가로등입니다. 전봇대를 활용한 다기능 부가 설비입니다.">
+          <h3>가로등</h3>
+          <p>부가 조명 설비.</p>
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>⚡ 전봇대 구조를 인터랙티브하게 살펴보는 교육용 안내 페이지 | 한국폴리텍대학교 전기공학과 13조</p>
+  </footer>
+
+  <audio id="bgMusic" loop>
+    <source src="전봇대 외우기.mp3" type="audio/mpeg">
+    브라우저가 오디오 태그를 지원하지 않습니다.
+  </audio>
+
+  <button id="musicToggle" class="music-toggle off">🔊 BGM ON</button>
+
+  <script>
+    const mainImage = document.getElementById("mainImage");
+    const mainTitle = document.getElementById("mainTitle");
+    const mainDesc = document.getElementById("mainDesc");
+    const mainViewer = document.getElementById("mainViewer");
+    const cards = document.querySelectorAll(".card-btn");
+
+    cards.forEach(card => {
+      card.addEventListener("click", () => {
+        cards.forEach(c => c.classList.remove("active"));
+        card.classList.add("active");
+
+        mainImage.style.opacity = '0.5';
+
+        setTimeout(() => {
+          mainImage.src = card.dataset.img;
+          mainImage.alt = card.dataset.title;
+          mainTitle.textContent = card.dataset.title;
+          mainDesc.textContent = card.dataset.desc;
+          mainImage.style.opacity = '1';
+
+          mainViewer.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center'
+          });
+        }, 200);
+      });
+
+      card.addEventListener("keydown", (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          card.click();
+        }
+      });
+    });
+
+    const bgMusic = document.getElementById("bgMusic");
+    const musicToggle = document.getElementById("musicToggle");
+    let isPlaying = false;
+
+    musicToggle.addEventListener("click", () => {
+      if (!isPlaying) {
+        bgMusic.play();
+        isPlaying = true;
+        musicToggle.textContent = "🔈 BGM OFF";
+        musicToggle.classList.remove("off");
+      } else {
+        bgMusic.pause();
+        bgMusic.currentTime = 0;
+        isPlaying = false;
+        musicToggle.textContent = "🔊 BGM ON";
+        musicToggle.classList.add("off");
+      }
+    });
+  </script>
+</body>
+</html>
